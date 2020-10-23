@@ -1,7 +1,7 @@
 
 class Wave {
     constructor(xOff, yOff){
-        this.xOff = xOff
+        this.xOff = xOff + 100;
         this.yOff = yOff;
         this.yPoinst = Array.from({})
         this.counter = 0;
@@ -20,7 +20,7 @@ class Wave {
 
 
     display(){
-        // translate(this.xOff, this.yOff);
+        this.drawRightLine();
         beginShape();
         for(let i = 0; i < this.waves.length; i++){
             vertex(i + this.xOff, this.waves[i] + this.yOff);
@@ -33,7 +33,18 @@ class Wave {
         
         // console.log(waves.length);
        
-        }
+    }
+
+    drawRightLine(){
+        line(this.xOff - 200, this.waves[0] + this.yOff, this.xOff, this.waves[0] + this.yOff);
+    }
+
+    drawLeftLine(){
+        line(this.xOff - 200, this.waves[0] + this.yOff, this.xOff, this.waves[0] + this.yOff);
+    }
+
+
+
 
     generateCirclePoints(){
             this.points.forEach( (point, i) => {      
